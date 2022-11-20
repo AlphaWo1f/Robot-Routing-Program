@@ -5,17 +5,20 @@ function showCoords(event) {
     var x2 = event.clientX;
     var y2 = event.clientY;
 
-    if(x2>x && y2>y){
-        r = Math.atan((x2-x)/(y2-y))
-    }else if(x2<x && y2<y){
+    if(x2>x1 && y2>y1){
+        r = Math.atan((x2-x1)/(y2-y1))
+    }else if(x2<x1 && y2<y1){
         r = Math.atan((y1-y2)/(x1-x2))
-    }else if(x2>x && y2<y){
-        r = Math.atan((y1-y2)/(x2-x))
-    }else if(x2<x && y2>y){
-        r = Math.atan((x2-x)/(y2-y))
+    }else if(x2>x1 && y2<y1){
+        r = Math.atan((y1-y2)/(x2-x1))
+    }else if(x2<x1 && y2>y1){
+        r = Math.atan((x2-x1)/(y2-y1))
     }
 
-    var coords1 = "client - X: " + x2 + ", Y coords: " + y2 + ", Rotation: " + r;
+
+    var coords1 = "X2: " + x2 + ", Y2: " + y2 + ", x1: " + x1 + ", y1: " + y1 +", Rotation: " + r;
+    x1 = x2
+    y1 = y2
     document.getElementById("demo").innerHTML = coords1;
 
   }
