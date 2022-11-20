@@ -2,8 +2,8 @@ const program = [], start = [], turn = [], aim = [], intake = [];
 let x1 = 0, x2, y1 = 0, y2, r;
 
 function showCoords(event) {
-    var x2 = event.clientX;
-    var y2 = event.clientY;
+    var x2 = event.clientX - 7;
+    var y2 = 650 - event.clientY;
 
     if(x2>x1 && y2>y1){
         r = Math.atan((x2-x1)/(y2-y1))
@@ -13,6 +13,8 @@ function showCoords(event) {
         r = Math.atan((y1-y2)/(x2-x1))
     }else if(x2<x1 && y2>y1){
         r = Math.atan((x2-x1)/(y2-y1))
+    }else{
+        r = 0
     }
 
 
