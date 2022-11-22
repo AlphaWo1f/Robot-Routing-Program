@@ -1,5 +1,16 @@
 const program = [], start = [], turn = [], aim = [], intake = []; 
 let x1 = 0, x2, y1 = 0, y2, r;
+//create a object to store each piece of code outputted
+let instructions = {
+    xPrevious: 0,
+    yPrevious: 0,
+    xFinal: 0,
+    yFinal: 0,
+    rotationPrev: 0,
+    rotationFinal: 0,
+    aim: false,
+    intake: false,
+}
 
 function showCoords(event) {
     var x2 = event.clientX - 7;
