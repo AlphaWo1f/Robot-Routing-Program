@@ -1,4 +1,6 @@
 const program = []
+let aim = false;
+let intake = false;
 let x1 = 1, x2, y1 = 1, y2, r = [0], netposx = 612.5, netposy = 612.5, counter = 1;;
 //create a object to store each piece of code outputted
 class instructions {
@@ -20,7 +22,12 @@ function getCoords(x2, y2){
     console.log("y2: ", y2)
 
 }
-
+function aimbutton(){
+    aim = true;
+}
+function intakebutton(){
+    intake = true
+}
 
 function showCoords(event) {
 
@@ -45,10 +52,11 @@ function showCoords(event) {
     //work on logic for the rotation
     r[counter] = r[counter] - r[counter-1] 
     console.log("r: ", r)
+    let len = program.length
+    program.append(new instructions(program[len-2].x2,program[len-2].y2, x2,y2, program[len-2].rotationFinal, r[counter], aim, intake))
 
 
-
-    var coords1 = "X2: " + x2 + ", Y2: " + y2 + ", x1: " + x1 + ", y1: " + y1 +", Rotation: " + r[counter];
+    var coords1 = "X2: " + x2 + ", Y2: " + y2 + ", x1: " + x1 + ", y1: " + y1 +", Rotation: " + r[counter] + ", aim: " + aim + ", intake" + intake;
     x1 = x2
     y1 = y2
     document.getElementById("demo").innerHTML = coords1;
@@ -56,8 +64,9 @@ function showCoords(event) {
     document.getElementById("robot").style.bottom= y2 + 20 +"px";  
     document.getElementById("robot").style.left= x2 + 20 + "px";
     getCoords(x2, y2)
-    // let len = program.length
-    // program.append(new instructions(program[len-2]))
+    
+    aim  = false;
+    intake = false;
     counter++;
   }
 
