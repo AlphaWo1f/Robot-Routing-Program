@@ -1,5 +1,5 @@
 const program = [], start = [], turn = [], aim = [], intake = []; 
-let x1 = 0, x2, y1 = 0, y2, r;
+let x1 = 0, x2, y1 = 0, y2, r, netposx, netposy;
 //create a object to store each piece of code outputted
 let instructions = {
     xPrevious: 0,
@@ -10,6 +10,9 @@ let instructions = {
     rotationFinal: 0,
     aim: false,
     intake: false,
+    netposx: 50,
+    netposy: 50,
+
 }
 
 function showCoords(event) {
@@ -23,7 +26,7 @@ function showCoords(event) {
     }else if(x2>x1 && y2<y1){
         r = Math.atan((y1-y2)/(x2-x1))
     }else if(x2<x1 && y2>y1){
-        r = Math.atan((x2-x1)/(y2-y1))
+        r = Math.atan((x1-x2)/(y2-y1))
     }else{
         r = 0
     }
